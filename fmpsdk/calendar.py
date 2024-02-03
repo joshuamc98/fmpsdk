@@ -9,6 +9,9 @@ def earning_calendar(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /earning_calendar/ API.
+    A list of upcoming & past earnings announcements for
+    publicly traded companies, including the date, estimated
+    earnings per share (EPS), and actual EPS (if available)
 
     Note: Between the "from" and "to" parameters the maximum time interval can be 3 months.
     :param apikey: Your API key.
@@ -53,6 +56,10 @@ def ipo_calendar(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /ipo_calendar/ API.
+    
+    The FMP IPO Calendar By Symbol endpoint provides
+    a list of IPOs that have been confirmed and are scheduled
+    to take place in the near future for a given company.
 
     Note: Between the "from" and "to" parameters the maximum time interval can be 3 months.
     :param apikey: Your API key.
@@ -76,6 +83,10 @@ def stock_split_calendar(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /stock_split_calendar/ API.
+    
+    A list of upcoming stock splits for publicly
+    traded companies, including the date of the stock
+    split, the split ratio, and the type of stock split.
 
     Note: Between the "from" and "to" parameters the maximum time interval can be 3 months.
     :param apikey: Your API key.
@@ -99,6 +110,10 @@ def dividend_calendar(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /stock_dividend_calendar/ API.
+    
+    A list of upcoming dividend payments for publicly traded
+    companies, including the date of the dividend payment,
+    the ex-dividend date, and the dividend per share.
 
     Note: Between the "from" and "to" parameters the maximum time interval can be 3 months.
     :param apikey: Your API key.
@@ -122,6 +137,8 @@ def economic_calendar(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /economic_calendar/ API.
+    
+    Provides a calendar of upcoming economic data releases.s
 
     Note: Between the "from" and "to" parameters the maximum time interval can be 3 months.
     :param apikey: Your API key.

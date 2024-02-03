@@ -8,6 +8,11 @@ def commitment_of_traders_report_list(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /commitment_of_traders_report/list API.
+    
+    The Commitment of Traders Report is a weekly report
+    from the Commodity Futures Trading Commission (CFTC)
+    that provides insights into the positions of market participants
+    in various markets.
 
     List of symbols for COT.
 

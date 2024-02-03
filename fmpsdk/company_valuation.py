@@ -28,6 +28,11 @@ def company_profile(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /profile/ API.
+    
+    Get a comprehensive overview of a company with
+    our Company Profile endpoint. This endpoint provides
+    key information such as price, beta, market capitalization,
+    description, headquarters, and more.
 
     Gather this company's information.
     :param apikey: Your API key.
@@ -60,6 +65,12 @@ def search(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /search/ API.
+    
+    
+    Search over 70,000 symbols by symbol name or company name,
+    including cryptocurrencies, forex, stocks, etf and other
+    financial instruments.
+
 
     Search via ticker and company name.
     :param apikey: Your API key.
@@ -83,6 +94,10 @@ def search_ticker(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /search-ticker/ API.
+    
+    Find ticker symbols and exchanges for both
+    equity securities and exchange-traded funds (ETFs)
+    by searching with the company name or ticker symbol.
 
     Search only via ticker.
     :param apikey: Your API key.
@@ -106,6 +121,10 @@ def financial_statement(
 ) -> None:
     """
     Query FMP /financial-statements/ API.
+    
+    Discover all companies with financial statements available
+    on our API. Our comprehensive list covers major exchanges
+    such as the NYSE and NASDAQ, as well as international exchanges.
 
     Download company's financial statement.
     :param apikey: Your API key.
@@ -133,6 +152,10 @@ def income_statement(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /income-statement/ API.
+    
+    This data can be used to track a company's profitability
+    over time, to compare a company to its competitors, and to
+    identify trends in a company's business.
 
     Display or download company's income statement.
     :param apikey: Your API key.
@@ -164,6 +187,13 @@ def balance_sheet_statement(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /balance-sheet-statement/ API.
+    
+    
+    The balance sheet is a financial statement that displays a 
+    company’s total assets, liabilities, and shareholder equity
+    over a specific timeframe (quarterly or yearly). Investors
+    can use this statement to determine if the company can fund
+    its operations, meet its debt obligations, and pay a dividend.
 
     Display or download company's balance sheet statement.
     :param apikey: Your API key.
@@ -195,6 +225,13 @@ def cash_flow_statement(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /cash-flow-statement/ API.
+    
+    The cash flow statement is a financial statement that highlights
+    how cash moves through the company, including both cash inflows
+    and outflows. This statement shows the cash flows in 3 main categories
+    “Operating Cash Flows”, “Investing Cash Flows”, and “Financing Cash Flows”,
+    which help investors to understand if the company is making money or
+    losing money by conducting business.
 
     Display or download company's cash flow statement.
     :param apikey: Your API key.
@@ -238,6 +275,9 @@ def income_statement_growth(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /income-statement-growth/ API.
+    
+    Get the income growth rate for a company. Measure
+    how quickly a company's income is growing.
 
     Growth stats for company's income statement.
     :param apikey: Your API key.
@@ -258,6 +298,9 @@ def balance_sheet_statement_growth(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /balance-sheet-statement-growth/ API.
+    
+    Get the balance sheet growth rate for a company.
+    Measure how quickly a company's assets and liabilities are growing.
 
     Growth stats for company's balance sheet statement.
     :param apikey: Your API key.
@@ -278,6 +321,9 @@ def cash_flow_statement_growth(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /cash-flow-statement-growth/ API.
+    
+    Get the cash flow growth rate for a company. Measure
+    how quickly a company's cash flow is growing.
 
     Growth stats for company's cash flow statement.
     :param apikey: Your API key.
@@ -303,6 +349,11 @@ def income_statement_as_reported(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /income-statement-as-reported/ API.
+    
+    Get the income statement for a company as reported by the company,
+    without any adjustments. This endpoint provides a complete and
+    accurate picture of a company's financial performance over a period
+    of time.
 
     Company's "as reported" income statement.
     :param apikey: Your API key.
@@ -338,6 +389,10 @@ def balance_sheet_statement_as_reported(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /balance-sheet-statement-as-reported/ API.
+    
+    Get the balance sheet for a company as reported by the company,
+    without any adjustments. This endpoint can be used to assess a 
+    company's financial health and to identify potential risks.
 
     Company's "as reported" balance sheet statement.
     :param apikey: Your API key.
@@ -373,6 +428,11 @@ def cash_flow_statement_as_reported(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /cash-flow-statement-as-reported/ API.
+    
+    Get the cash flow statement for a company as reported by
+    the company, without any adjustments. This endpoint can be
+    used to assess a company's cash flow generating ability and
+    to identify potential risks.
 
     Company's "as reported" cash flow statement.
     :param apikey: Your API key.
@@ -405,6 +465,12 @@ def financial_statement_full_as_reported(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /financial-statement-full-as-reported/ API.
+    
+    FMP's Full Financial Statement As Reported API provides access
+    to all three of the financial statements (income statement, balance sheet,
+    and cash flow statement) for a company as reported by the company.
+    This data can be used to get a complete overview of a company's financial
+    performance and health.
 
     Company's "as reported" full income statement.
     :param apikey: Your API key.
@@ -422,6 +488,10 @@ def financial_ratios_ttm(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FmP /ratios-ttm/ API.
+    
+    Get financial ratios for a company, such as the P/B ratio
+    and the ROE, for the trailing twelve months (TTM). Get a
+    more up-to-date view of a company's financial health.
 
     :param apikey: Your API key
     :param symbol: Company ticker
@@ -440,6 +510,10 @@ def financial_ratios(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FmP /ratios/ API.
+    
+    Get financial ratios for a company, such as the P/B
+    ratio and the ROE. Assess a company's financial health
+    and compare it to its competitors.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -464,6 +538,10 @@ def enterprise_values(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /enterprise-values/ API.
+    
+    Get the enterprise value of a company, which is the total value
+    of a company, including its equity and debt. Assess a company's
+    overall value and compare it to its peers.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -487,6 +565,11 @@ def key_metrics_ttm(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /key-metrics-ttm/ API
+    
+    Get key financial metrics for a company,
+    including revenue, net income, EPS, and P/E ratio,
+    for the trailing twelve months (TTM). Get a more
+    up-to-date view of a company's financial performance
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -506,6 +589,11 @@ def key_metrics(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /key-metrics/ API
+    
+    Get key financial metrics for a company,
+    including revenue, net income, earnings per share (EPS),
+    and price-to-earnings ratio (P/E ratio). Assess a company's
+    financial performance and compare it to its competitors.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -530,6 +618,10 @@ def financial_growth(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /financial-growth/ API.
+    
+    Financial Growth Get the financial growth rate for
+    a company. Measure how quickly a company's overall
+    financial performance is improving.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -549,6 +641,13 @@ def financial_growth(
 def rating(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /rating/ API.
+    
+    The FMP Company Rating endpoint provides a rating
+    of a company based on its financial statements,
+    discounted cash flow analysis, financial ratios,
+    and intrinsic value. Investors can use this rating
+    to get a quick overview of a company's financial health
+    and to compare different companies.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -566,6 +665,11 @@ def historical_rating(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /historical-rating/ API.
+    
+    The FMP Historical Rating endpoint provides the
+    historical rating of a company. Investors can use
+    this information to track the changes in a company's
+    rating over time and to identify trends in its performance
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -582,6 +686,10 @@ def discounted_cash_flow(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /discounted-cash-flow/ API.
+    
+    Get the discounted cash flow (DCF) valuation
+    for a company, a method to estimate the value
+    of an investment based on its expected future cash flows.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -637,6 +745,12 @@ def market_capitalization(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /market-capitalization/ API.
+    
+    The FMP Market Cap endpoint provides the current market
+    capitalization of a company. Market cap is a measure of the
+    size and relative importance of a company in the stock market.
+    It is calculated by multiplying the current share price by the
+    number of outstanding shares.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -652,6 +766,11 @@ def historical_market_capitalization(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /historical-market-capitalization/ API.
+    
+    The FMP Historical Market Cap endpoint offers comprehensive historical
+    market capitalization data for companies, enabling users to analyze the company's
+    growth trajectory and identify performance trends over time. Please note that each
+    query is limited to a maximum of five years of data.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -666,6 +785,11 @@ def historical_market_capitalization(
 def symbols_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /stock/list/ API
+    
+    Find symbols for traded and non-traded stocks
+    with our Symbol List. This comprehensive list
+    includes over 25,000 stocks, making it the perfect
+    resource for investors and traders of all levels.
 
     :param apikey: Your API key.
     :return: A list of dictionaries.
@@ -678,6 +802,10 @@ def symbols_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
 def etf_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /etf/list/ API
+    
+    Our Exchange Traded Fund Search makes it easy to find the symbol
+    for any ETF you're looking for. Simply enter the ETF's name
+    and we'll return the symbol, name, and price.
 
     All ETF symbols
 
@@ -692,6 +820,11 @@ def etf_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
 def available_traded_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /available-traded/list/ API
+    
+    Discover all actively traded stocks with our Tradable
+    Search feature. This comprehensive list includes over
+    70,000 stocks, with symbol, name, price, and exchange 
+    information for each company.
 
     All tradable symbols
 
@@ -725,6 +858,11 @@ def stock_screener(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /stock-screener/ API.
+    
+    Find stocks that meet your investment criteria with
+    our Screener (Stock) endpoint. This endpoint allows
+    you to search for stocks based on various criteria,
+    such as market cap, price, volume, beta, sector, and country.
 
     :param apikey: Your API key.
     :param market_cap_more_than: Numeric Value
@@ -793,6 +931,12 @@ def delisted_companies(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /delisted-companies/ API.
+    
+    The FMP Delisted Companies endpoint provides
+    a list of companies that have been delisted
+    from US exchanges. Investors can use this information
+    to avoid trading in delisted stocks and to identify companies
+    that may be in financial trouble.
 
     :param apikey: Your API key.
     :param limit: Number of rows to return.
@@ -830,6 +974,10 @@ def earnings_surprises(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /earnings-surprises/ API.
+    
+    Get a list of the latest stock news articles
+    from a variety of sources, including the headline,
+    snippet, publication URL, and ticker symbol.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -845,6 +993,11 @@ def earning_call_transcript(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /earning_call_transcript/ API.
+    
+    Get the full transcript of an earnings call
+    for a specific company in text format. This endpoint
+    can be used to learn more about a company's financial performance,
+    future plans, and overall strategy.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -862,6 +1015,11 @@ def batch_earning_call_transcript(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /batch_earning_call_transcript/ API.
+    
+    Get the full transcript of an earnings call
+    for a specific company in text format. This endpoint
+    can be used to learn more about a company's financial performance,
+    future plans, and overall strategy for each quarter in a year.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -878,6 +1036,10 @@ def earning_call_transcripts_available_dates(
 ) -> typing.Optional[typing.List[typing.List]]:
     """
     Query FMP /earning_call_transcript/ API.
+    
+    Get a list of all upcoming earnings call dates
+    for a specific company. This endpoint can be used
+    to plan your trading activity around earnings call dates.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -893,6 +1055,9 @@ def sec_filings(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /sec_filings/ API.
+    
+    Direct link to SEC filings, including the foiling type,
+    link to SEC page, and direct link to the filing
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -910,6 +1075,10 @@ def press_releases(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /press-releases/ API.
+    
+    Get a list of the latest press releases
+    from a variety of companies, including the headline,
+    snippet, publication URL, and company name.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -924,6 +1093,13 @@ def press_releases(
 def stock_peers(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /stock_peers/ API
+    
+    The FMP Stock Peers endpoint provides a group of companies
+    that trade on the same exchange, are in the same sector,
+    and have a similar market capitalization. Investors can use
+    this information to compare a company to its competitors
+    and to identify companies that are performing well.
+    
     :param apikey: Your API key
     :param symbol: Company ticker
     :return: A list of dictionaries
@@ -938,6 +1114,12 @@ def analyst_estimates(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /analyst-estimates/ API.
+    
+    The FMP Analyst Estimates endpoint provides
+    analyst estimates for a company's future earnings
+    and revenue. Investors can use this information
+    to get a sense of what analysts expect from a company
+    and to identify potential investment opportunities.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
