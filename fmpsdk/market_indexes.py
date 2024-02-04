@@ -16,6 +16,14 @@ from .url_methods import __return_json_v3
 def indexes(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /quotes/index/ API.
+    
+    The FMP Market Index endpoint provides a list of all
+    the major stock market indices, such as the S&P 500,
+    the Dow Jones Industrial Average, and the Nasdaq Composite
+    Index. This information can be used by investors to track
+    the performance of the overall stock market and to identify
+    sectors and industries that are outperforming or underperforming
+    the market.
 
     :param apikey: Your API key.
     :return: A list of dictionaries.
@@ -31,6 +39,8 @@ def sp500_constituent(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /sp500_constituent/ API
+    
+    Provides historical data for all companies that are included in the S&P 500 index.
 
     :param apikey: Your API key.
     :param download: True/False
@@ -53,6 +63,9 @@ def historical_sp500_constituent(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /historical/sp500_constitnuet/ API.
+    
+    Provides historical data for all companies that are
+    included in the S&P 500 index.
 
     :param apikey: Your API key.
     :return: A list of dictionaries.
@@ -69,6 +82,9 @@ def nasdaq_constituent(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /nasdaq_constituent/ API
+    
+    Provides a list of all companies that are
+    listed on the NASDAQ stock exchange.
 
     :param apikey: Your API key.
     :param download: True/False
@@ -91,6 +107,9 @@ def historical_nasdaq_constituent(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /historical/nasdaq_constitnuet/ API.
+    
+    Provides a list of all companies that are listed
+    on the NASDAQ stock exchange.
 
     :param apikey: Your API key.
     :return: A list of dictionaries.
@@ -107,6 +126,9 @@ def dowjones_constituent(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /dowjones_constituent/ API
+    
+    Provides a list of all companies that are included
+    in the Dow Jones Industrial Average.
 
     :param apikey: Your API key.
     :param download: True/False
@@ -129,7 +151,10 @@ def historical_dowjones_constituent(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /historical/dowjones_constitnuet/ API.
-
+    
+    Provides a list of all companies that are included
+    in the Dow Jones Industrial Average.
+    
     :param apikey: Your API key.
     :return: A list of dictionaries.
     """
@@ -141,6 +166,10 @@ def historical_dowjones_constituent(
 def available_indexes(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /symbol/available-indexes/ API
+    
+    The FMP Available Indexes endpoint provides a list
+    of all available indexes. The list includes the index's
+    symbol, name, and exchange.
 
     :param apikey: Your API key
     :return: A list of dictionaries.

@@ -9,6 +9,9 @@ def available_cryptocurrencies(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /symbol/available-cryptocurrencies/ API
+    
+    Provides a list of all cryptocurrencies that are traded
+    on exchanges around the world.
 
     :param apikey: Your API key.
     :return: A list of dictionaries.
@@ -21,6 +24,9 @@ def available_cryptocurrencies(
 def cryptocurrencies_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /quotes/crypto/ API
+    
+    Provides a list of all quotes for all cryptocurrencies
+    that are traded on exchanges around the world.
 
     :param apikey: Your API key.
     :return: A list of dictionaries.

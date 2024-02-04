@@ -7,6 +7,10 @@ from .url_methods import __return_json_v3
 def available_euronext(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /symbol/available-euronext/ API
+    
+    Find all symbols for stocks traded on Euronext exchanges
+    with our comprehensive list. Euronext is one of the largest
+    exchanges in Europe, and our list includes stocks from a wide range of industries.
 
     :param apikey: Your API key.
     :return: A list of dictionaries.

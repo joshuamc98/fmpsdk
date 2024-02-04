@@ -46,6 +46,12 @@ def etf_price_realtime(apikey: str) -> typing.Optional[typing.List[typing.Dict]]
 def etf_info(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /etf-info/ API
+    
+    The FMP ETF Information endpoint provides basic information
+    about an ETF, such as its ticker symbol, name, expense ratio,
+    and asset under management. For example, an investor may want to
+    compare the expense ratios of different ETFs to find the one that
+    is most cost-effective.
 
     All Real-time ETF Prices.
 

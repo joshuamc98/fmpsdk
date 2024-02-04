@@ -12,6 +12,9 @@ def institutional_holders(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /institutional-holder/ API.
+    
+    Provides the stock ownership of individual holders,
+    including institutional and individual investors.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -27,6 +30,12 @@ def mutual_fund_holders(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /mutual-fund-holder/ API.
+    
+    The FMP Mutual Fund Holder endpoint provides a list of all the institutional
+    investors that own shares of a particular mutual fund. This information can be
+    used by investors to track the ownership of a mutual fund and to identify potential
+    trends. For example, an investor may want to know which institutions are buying or
+    selling shares of a particular mutual fund.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -40,6 +49,11 @@ def mutual_fund_holders(
 def etf_holders(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /etf-holder/ API.
+    
+    The FMP ETF Holder endpoint provides a list of all
+    the institutional investors that own shares of an ETF.
+    For example, an investor may want to know which institutions
+    are buying or selling shares of a particular ETF.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -55,6 +69,14 @@ def etf_sector_weightings(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /etf-sector-weightings/ API.
+    
+    The FMP ETF Sector Weighting endpoint provides
+    a breakdown of the percentage of an ETF's assets
+    that are invested in each sector. For example, an
+    investor may want to invest in an ETF that has a high
+    exposure to the technology sector if they believe that
+    the technology sector is poised for growth.
+
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -70,6 +92,12 @@ def etf_country_weightings(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /etf-country-weightings/ API.
+    
+    The FMP ETF Country Weighting endpoint provides a breakdown 
+    of the percentage of an ETF's assets that are invested in
+    each country. For example, an investor may want to invest
+    in an ETF that has a high exposure to China if they believe
+    that the Chinese economy is poised for growth.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.
@@ -88,6 +116,11 @@ def sec_rss_feeds(
 ) -> typing.Union[typing.List[typing.Dict], None]:
     """
     Query FMP /rss_feed/ API.
+    
+    A real-time feed of SEC filings from publicly traded companies,
+    including the filing type, link to SEC page, and direct link to
+    the filing. This endpoint can be used to stay up-to-date on the
+    latest SEC filings for all companies or for a specific set of companies.
 
     :param apikey: Your API key.
     :param limit: Number of rows to return.
@@ -123,6 +156,13 @@ def cik_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
 def cik_search(apikey: str, name: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /cik-search/ API.
+    
+    Our CIK List provides a comprehensive database of CIK
+    numbers for SEC-registered entities. A CIK number is a
+    unique identifier assigned to each SEC-registered entity,
+    and it is required for many financial transactions. Our CIK
+    List is a valuable resource for businesses and individuals who
+    need to quickly and easily find CIK numbers
 
     FORM 13F cik search by name
     :param apikey: Your API key.
@@ -137,6 +177,10 @@ def cik_search(apikey: str, name: str) -> typing.Optional[typing.List[typing.Dic
 def cik(apikey: str, cik_id: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /cik/ API.
+    
+    Quickly find registered company names linked to
+    SEC-registered entities using their CIK Number with
+    our CIK Search..
 
     FORM 13F get company name by cik
     :param apikey: Your API key.
@@ -153,6 +197,10 @@ def form_13f(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /form-thirteen/ API.
+    
+    Provides quarterly reports on the equity holdings
+    of institutional investment managers with over $100
+    million in assets under management.
 
     FORM 13F statements provides position-level report of all institutional investment managers with more than $100m
     in assets under management.
@@ -171,6 +219,10 @@ def form_13f(
 def cusip(apikey: str, cik_id: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /cusip/ API.
+    
+    Access information about financial instruments and securities
+    by simply entering their unique CUSIP (Committee on Uniform Securities
+    Identification Procedures) numbers with our CUSIP Search.
 
     Cusip mapper
     :param apikey: Your API key.
@@ -190,6 +242,8 @@ def institutional_symbol_ownership(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /institutional-ownership/symbol-ownership API.
+    
+    Provides the institutional ownership of individual stocks.
 
     :param apikey: Your API key.
     :param symbol: Company ticker.

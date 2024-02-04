@@ -18,6 +18,9 @@ def insider_trading(
     The federal securities laws require certain individuals (such as officers, directors, and those that hold more
     than 10% of any class of a company’s securities, together we’ll call, “insiders”) to report purchases, sales,
     and holdings of their company’s securities by filing Forms 3, 4, and 5.
+    
+    Provides detailed information on individual institutional investment managers,
+    including their holdings, contact information, and investment style.
 
     This API can be queried with your choice of symbol, company_cik or reporting_cik. Only one of these parameters
     will be accepted.
@@ -50,6 +53,8 @@ def mapper_cik_name(
 ) -> typing.Optional[typing.List[typing.Dict]]:
     """
     Query FMP /mapper-cik-name/ API.
+    
+    Converts a CIK number to a company name.
 
     List with names and their CIK
 
