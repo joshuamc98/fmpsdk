@@ -22,9 +22,8 @@ READ_TIMEOUT = 30
 logging.getLogger("requests").setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-
-def __return_json_v3(
-    path: str, query_vars: typing.Dict
+def __return_json_base(
+    base_url: str, path: str, query_vars: typing.Dict
 ) -> typing.Optional[typing.List]:
     """
     Query URL for JSON response for v3 of FMP API.
@@ -33,7 +32,7 @@ def __return_json_v3(
     :param query_vars: Dictionary of query values (after "?" of URL)
     :return: JSON response
     """
-    url = f"{BASE_URL_v3}{path}"
+    url = f"{base_url}{path}"
     return_var = None
     try:
         response = requests.get(
@@ -68,8 +67,8 @@ def __return_json_v3(
     return return_var
 
 
-def __return_json_v4(
-    path: str, query_vars: typing.Dict
+def __return_json_v3(
+    *args, **kwargs
 ) -> typing.Optional[typing.List]:
     """
     Query URL for JSON response for v4 of FMP API.
@@ -78,38 +77,20 @@ def __return_json_v4(
     :param query_vars: Dictionary of query values (after "?" of URL)
     :return: JSON response
     """
-    url = f"{BASE_URL_v4}{path}"
-    return_var = None
-    try:
-        response = requests.get(
-            url, params=query_vars, timeout=(CONNECT_TIMEOUT, READ_TIMEOUT)
-        )
-        if len(response.content) > 0:
-            return_var = response.json()
+    return __return_json_base(base_url=BASE_URL_v3, *args, **kwargs)
 
-        if len(response.content) == 0 or (
-            isinstance(return_var, dict) and len(return_var.keys()) == 0
-        ):
-            logging.warning("Response appears to have no data.  Returning empty List.")
-            return_var = []
 
-    except requests.Timeout:
-        logging.error(f"Connection to {url} timed out.")
-    except requests.ConnectionError:
-        logging.error(
-            f"Connection to {url} failed:  DNS failure, refused connection or some other connection related "
-            f"issue."
-        )
-    except requests.TooManyRedirects:
-        logging.error(
-            f"Request to {url} exceeds the maximum number of predefined redirections."
-        )
-    except Exception as e:
-        logging.error(
-            f"A requests exception has occurred that we have not yet detailed an 'except' clause for.  "
-            f"Error: {e}"
-        )
-    return return_var
+def __return_json_v4(
+    *args, **kwargs
+) -> typing.Optional[typing.List]:
+    """
+    Query URL for JSON response for v4 of FMP API.
+
+    :param path: Path after TLD of URL
+    :param query_vars: Dictionary of query values (after "?" of URL)
+    :return: JSON response
+    """
+    return __return_json_base(base_url=BASE_URL_v4, *args, **kwargs)
 
 
 def __validate_period(value: str) -> str:
@@ -123,90 +104,67 @@ def __validate_period(value: str) -> str:
         return value
     else:
         logging.error(f"Invalid period value: {value}.  Valid options: {valid_values}")
+     
+        
+def __validator(value: str, valid_values: list[str]) -> str:
+    """
+    Check to see if passed string is in the list of possible values.
+    :param value: Value to check against valid values.
+    :return: Passed value or No Return
+    """
+    if value in valid_values:
+        return value
+    else:
+        logging.error(f"Invalid value: {value}.  Valid options: {valid_values}")
 
-
-def __validate_sector(value: str) -> str:
+    
+def __validate_sector(*args, **kwargs) -> str:
     """
     Check to see if passed string is in the list of possible Sectors.
     :param value: Sector name.
     :return: Passed value or No Return
     """
-    valid_values = SECTOR_VALUES
-    if value in valid_values:
-        return value
-    else:
-        logging.error(f"Invalid sector value: {value}.  Valid options: {valid_values}")
+    return __validator(valid_values=SECTOR_VALUES, *args, **kwargs)
 
 
-def __validate_industry(value: str) -> str:
+def __validate_industry(*args, **kwargs) -> str:
     """
     Check to see if passed string is in the list of possible Industries.
     :param value: Industry name.
     :return: Passed value or No Return
     """
-    valid_values = INDUSTRY_VALUES
-    if value in valid_values:
-        return value
-    else:
-        logging.error(
-            f"Invalid industry value: {value}.  Valid options: {valid_values}"
-        )
+    return __validator(valid_values=INDUSTRY_VALUES, *args, **kwargs)
 
 
-def __validate_time_delta(value: str) -> str:
+def __validate_time_delta(*args, **kwargs) -> str:
     """
     Check to see if passed string is in the list of possible Time Deltas.
     :param value: Time Delta name.
     :return: Passed value or No Return
     """
-    valid_values = TIME_DELTA_VALUES
-    if value in valid_values:
-        return value
-    else:
-        logging.error(
-            f"Invalid time_delta value: {value}.  Valid options: {valid_values}"
-        )
+    return __validator(valid_values=TIME_DELTA_VALUES, *args, **kwargs)
 
-
-def __validate_series_type(value: str) -> str:
+def __validate_series_type(*args, **kwargs) -> str:
     """
     Check to see if passed string is in the list of possible Series Type.
     :param value: Series Type name.
     :return: Passed value or No Return
     """
-    valid_values = SERIES_TYPE_VALUES
-    if value in valid_values:
-        return value
-    else:
-        logging.error(
-            f"Invalid series_type value: {value}.  Valid options: {valid_values}"
-        )
+    return __validator(valid_values=SERIES_TYPE_VALUES, *args, **kwargs)
 
 
-def __validate_statistics_type(value: str) -> str:
+def __validate_statistics_type(*args, **kwargs) -> str:
     """
     Check to see if passed string is in the list of possible Statistics Type.
     :param value: Statistics Type name.
     :return: Passed value or No Return
     """
-    valid_values = STATISTICS_TYPE_VALUES
-    if value in valid_values:
-        return value
-    else:
-        logging.error(
-            f"Invalid statistics_type value: {value}.  Valid options: {valid_values}"
-        )
+    return __validator(valid_values=STATISTICS_TYPE_VALUES, *args, **kwargs)
 
 
-def __validate_technical_indicators_time_delta(value: str) -> str:
+def __validate_technical_indicators_time_delta(*args, **kwargs) -> str:
     """Exactly like set_time_delta() method but adds 'daily' as an option.
     :param value: Indicators Time Delta name.
     :return: Passed value or No Return
     """
-    valid_values = TECHNICAL_INDICATORS_TIME_DELTA_VALUES
-    if value in valid_values:
-        return value
-    else:
-        logging.error(
-            f"Invalid time_delta value: {value}.  Valid options: {valid_values}"
-        )
+    return __validator(valid_values=TECHNICAL_INDICATORS_TIME_DELTA_VALUES, *args, **kwargs)
